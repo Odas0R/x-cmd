@@ -3,8 +3,7 @@
 set -e
 
 declare cwd="$PWD"
-
-package_dot_json="$cwd/package.json"
+declare package_dot_json="$cwd/package.json"
 
 [[ ! -f "$package_dot_json" ]] && exit
 
