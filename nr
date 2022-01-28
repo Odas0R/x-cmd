@@ -16,7 +16,20 @@ if [[ -n $COMP_LINE ]]; then
   line=${COMP_LINE#* }
 
   for s in "${SCRIPTS[@]}"; do
-    [[ ${s:0:${#line}} == "${line,,}" ]] && echo "$s"
+    arg="${s:0:${#line}}"
+    line="${line,,}"
+
+    if [[ $arg == "$line" ]]; then
+
+      # process sub commands (command:subcommand:subcommand)
+      if [[ $line =~ ":" ]]; then
+        s=${line##*:}${s#$line*}
+        [[ $s == "${line##*:}" ]] && continue
+      fi
+
+      echo "$s"
+    fi
+
   done
   exit
 fi
