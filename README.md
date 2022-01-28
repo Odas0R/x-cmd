@@ -22,3 +22,7 @@ fi
 
 **Note:** You'll need to have `nr` globally accessible, must be
 accessible through your `$PATH`.
+
+## Dependencies
+
+* `jq`: <https://stedolan.github.io/jq/>
