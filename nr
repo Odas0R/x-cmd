@@ -34,4 +34,8 @@ if [[ -n $COMP_LINE ]]; then
   exit
 fi
 
-npm run "$@"
+if [[ -f "$cwd/package-lock.json" ]]; then
+  npm run "$@"
+elif [[ -f "$cwd/yarn.lock" ]]; then
+  yarn "$@"
+fi
