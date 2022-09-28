@@ -1,4 +1,4 @@
-# nr-cmd
+# x-cmd
 
 Have you ever tried the `npm completion` of bash?
 
