@@ -38,4 +38,9 @@ if [[ -f "$cwd/package-lock.json" ]]; then
   npm run "$@"
 elif [[ -f "$cwd/yarn.lock" ]]; then
   yarn "$@"
+elif [[ -f "$cwd/pnpm-lock.yaml" ]]; then
+  pnpm "$@"
+else
+  echo "No lock found in the current working directory."
+  exit 1
 fi
